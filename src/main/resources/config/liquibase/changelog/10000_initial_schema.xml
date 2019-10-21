@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--*
+  * Copyright (c) 2019. CreatedBy Wassim KALBOUSSI.  All rights reserved.
+  -->
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <changeSet id="10001" author="wassim">
+        <!--<createSequence sequenceName="hibernate_sequence" startValue="1000" incrementBy="50"/>-->
+        <createSequence incrementBy="1"
+                        schemaName="public"
+                        sequenceName="user_seq"
+                        startValue="1"/>
+    </changeSet>
+
+    <changeSet id="10002" author="wassim">
+        <createTable tableName="users">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="email" type="varchar(254)">
+                <constraints unique="true" nullable="true"/>
+            </column>
+            <column name="password_hash" type="varchar(60)"/>
+            <column name="image_url" type="varchar(256)"/>
+            <column name="activated" type="boolean" valueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lang_key" type="varchar(6)"/>
+            <column name="activation_key" type="varchar(20)"/>
+            <column name="reset_key" type="varchar(20)"/>
+            <column name="created_by" type="varchar(50)">
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reset_date" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="authority">
+            <column name="name" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="users_authorities">
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="users_authorities"/>
+
+        <addForeignKeyConstraint baseColumnNames="authority_name"
+                                 baseTableName="users_authorities"
+                                 constraintName="fk_authority_name"
+                                 referencedColumnNames="name"
+                                 referencedTableName="authority"/>
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="users_authorities"
+                                 constraintName="fk_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"/>
+
+        <addNotNullConstraint columnName="password_hash"
+                              columnDataType="varchar(60)"
+                              tableName="users"/>
+
+        <!--<loadData encoding="UTF-8"-->
+        <!--file="config/liquibase/authorities.csv"-->
+        <!--separator=";"-->
+        <!--tableName="authority"/>-->
+
+    </changeSet>
+
+
+</databaseChangeLog>

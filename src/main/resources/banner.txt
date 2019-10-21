@@ -1,0 +1,10 @@
+${AnsiColor.CYAN}  /$$$$$$  /$$$$$$$$ /$$$$$$$$${AnsiColor.RED} /$$$$$$   /$$$$$$  /$$$$$$$
+${AnsiColor.CYAN} /$$__  $$| $$_____/| $$_____/${AnsiColor.RED}/$$__  $$ /$$__  $$| $$__  $$
+${AnsiColor.CYAN}| $$  \ $$| $$      | $$     ${AnsiColor.RED}| $$  \__/| $$  \ $$| $$  \ $$
+${AnsiColor.CYAN}| $$$$$$$$| $$$$$   | $$$$$  ${AnsiColor.RED}| $$      | $$$$$$$$| $$$$$$$/
+${AnsiColor.CYAN}| $$__  $$| $$__/   | $$__/  ${AnsiColor.RED}| $$      | $$__  $$| $$__  $$
+${AnsiColor.CYAN}| $$  | $$| $$      | $$     ${AnsiColor.RED}| $$    $$| $$  | $$| $$  \ $$
+${AnsiColor.CYAN}| $$  | $$| $$      | $$     ${AnsiColor.RED}|  $$$$$$/| $$  | $$| $$  | $$
+${AnsiColor.CYAN}|__/  |__/|__/      |__/      ${AnsiColor.RED}\______/ |__/  |__/|__/  |__/
+${AnsiColor.BRIGHT_BLUE}:: AFFCAR 🤓  :: Running Spring Boot ${spring-boot.version} ::
+

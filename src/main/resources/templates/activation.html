@@ -1,0 +1,154 @@
+<!--*
+  * Copyright (c) 2019. CreatedBy Wassim KALBOUSSI.  All rights reserved.
+  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Activation Email</title>
+    <div style="background-color:#c8ced3;padding-top:80px">
+
+        <div style="margin:0 auto;max-width:600px;background:#ffffff">
+            <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#ffffff;border-top:3px solid #20a8d8" align="center" border="0">
+                <tbody>
+                <tr>
+                    <td style="text-align:center;vertical-align:top;font-size:0px;padding:40px 30px 30px 30px">
+
+                        <div aria-labelledby="mj-column-per-100" class="m_-4517337360731774104mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%">
+                            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tbody>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:30px" align="center">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px" align="center" border="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="width:180px">
+                                                    <a href="" target="_blank" data-saferedirecturl="">
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:30px" align="center">
+                                        <div style="color:#55575d;font-family:Open Sans,Helvetica,Arial,sans-serif;font-size:22px;font-weight:700;line-height:22px">
+                                            Activez votre compte
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:35px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:22px">
+                                            Afin de pouvoir activer votre compte, nous devons valider votre adresse email. Cliquez simplement sur le lien :
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:35px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:22px">
+                                        </div></td></tr><tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:40px" align="center">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate" align="center" border="0">
+                                            <tbody>
+                                            <tr>
+                                                <td style="border-radius:2px;color:#fff;padding:10px 25px" align="center" valign="middle" bgcolor="#4dbd74">
+                                                    <a th:href="@{|${baseUrl}/activate?key=${user.activationKey}|}" style="display:inline-block;text-decoration:none;background:#4dbd74;color:#fff;font-family:Roboto,Helvetica,Arial,sans-serif,Helvetica,Arial,sans-serif;font-size:14px;font-weight:normal;margin:0px" target="_blank" data-saferedirecturl="">
+                                                        Activer mon compte
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:8px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:22px">
+                                            Si ce lien ne fonctionne pas, copiez-collez l’URL suivante dans votre navigateur :
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:35px" align="center">
+                                        <div style="color:#3586ff;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:22px">
+                                            <a th:href="@{|${baseUrl}/activate?key=${user.activationKey}|}" th:text="@{|${baseUrl}/activate?key=${user.activationKey}|}" style="text-decoration:none;color:inherit" target="_blank"></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:22px">
+                                            Bienvenue à bord !
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:22px">
+                                            L'équipe Af'Car
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:22px">
+                                            &nbsp;
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div style="margin:0 auto;max-width:600px">
+            <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%" align="center" border="0">
+                <tbody>
+                <tr>
+                    <td style="text-align:center;vertical-align:top;font-size:0px;padding:30px">
+
+                        <div aria-labelledby="mj-column-per-100" class="m_-4517337360731774104mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%">
+                            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                <tbody>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:10px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:22px">
+                                            <span>Cet email vous a été envoyé par Af'Car, car vous avez créé un compte chez nous.</span> <span>Si vous pensez que cet email vous a été envoyé par erreur, merci de nous le signaler.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:0px;padding-bottom:15px" align="center">
+                                        <div style="color:#8c8c8c;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:22px">
+                                            © 2019 Af'car | Tunis,
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</head>
+<body>
+
+</body>
+</html>

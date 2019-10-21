@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "4fc6f819-5906-45e6-9637-8b2dd9ac0bca",
+		"name": "001-WKPROJECTS-UAA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registerUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"ismail.sabeur.hamza@affcar.tn\",\n\t\"password\":\"admin\",\n\t\"authorities\":\n\t\t[\n\t\t\"ROLE_USER\"\n\t\t],\n\t\"langKey\":\"FR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/registerUser",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"registerUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "activateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/activateUser?key=83750795306000700884",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"activateUser"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "83750795306000700884"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authenticateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "647a4505-d6af-48bb-9416-7f3bd2afa909",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"ismail.hamza@affcar.tn\",\n\t\"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/authenticate",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isAuthenticated",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/isAuthenticated",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"isAuthenticated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRemoteUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/getRemoteUser",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"getRemoteUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCurrentUserEmail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/getCurrentUserEmail",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"getCurrentUserEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCurrentUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/getCurrentUser",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"getCurrentUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isCurrentUserInRole",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/isCurrentUserInRole?role=ROLE_SUPER_ADMIN",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"isCurrentUserInRole"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "ROLE_SUPER_ADMIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "desactivateUser",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/deactivateUser/ismail.hamza@affcar.tn",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"deactivateUser",
+						"ismail.hamza@affcar.tn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changePassword",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"currentPassword\":\"admin\",\n\t\"newPassword\":\"wassim\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/changePassword",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"changePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"id\":\"1\",\n\t\"email\":\"wassim.kalboussi@affcar.tn\",\n\t\"password\":\"admin\",\n\t\"authorities\":\n\t\t[\n\t\t\"ROLE_USER\",\n\t\t\"ROLE_ADMIN\"\n\t\t],\n\t\"langKey\":\"FR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/updateUser",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"updateUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resetPasswordInit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/resetPassword/init/wassim.kalboussi@affcar.tn",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"resetPassword",
+						"init",
+						"wassim.kalboussi@affcar.tn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resetPasswordFinish",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"resetKey\":\"09152286229747718487\",\n\t\"newPassword\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/resetPassword/finish",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"resetPassword",
+						"finish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resetPasswordFinish Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"resetKey\":\"09152286229747718487\",\n\t\"newPassword\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wk-url}}/api/users/deleteUser/ismail.hamza@affcar.tn",
+					"host": [
+						"{{wk-url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"deleteUser",
+						"ismail.hamza@affcar.tn"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
