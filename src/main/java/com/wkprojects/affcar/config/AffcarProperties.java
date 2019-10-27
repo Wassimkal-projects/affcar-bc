@@ -12,6 +12,19 @@ public class AffcarProperties {
     private final Security security = new Security();
     private final Mail mail = new Mail();
 
+
+    public CorsConfiguration getCors() {
+        return cors;
+    }
+
+    public Security getSecurity() {
+        return security;
+    }
+
+    public Mail getMail() {
+        return mail;
+    }
+
     public static class Mail {
         private boolean enabled = false;
         private String from = "";

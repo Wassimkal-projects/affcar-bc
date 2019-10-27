@@ -69,6 +69,10 @@ public class User extends AbstractAuditingEntity {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "actor_id", nullable = false)
+    private Actor actor;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_authorities",
@@ -84,6 +88,14 @@ public class User extends AbstractAuditingEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
 
     public String getImageUrl() {

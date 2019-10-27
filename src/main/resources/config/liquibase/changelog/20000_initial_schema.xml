@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--*
+  * Copyright (c) 2019. CreatedBy Wassim KALBOUSSI.  All rights reserved.
+  -->
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet id="20001" author="wassim">
+        <createSequence incrementBy="1"
+                        schemaName="public"
+                        sequenceName="actor_seq"
+                        startValue="1"/>
+
+        <createSequence incrementBy="1"
+                        schemaName="public"
+                        sequenceName="vehicule_seq"
+                        startValue="1"/>
+
+        <createSequence incrementBy="1"
+                        schemaName="public"
+                        sequenceName="interest_seq"
+                        startValue="1"/>
+    </changeSet>
+
+    <changeSet id="20002" author="wassim">
+        <createTable tableName="actors">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="is_driver" type="boolean"/>
+            <column name="firstname" type="varchar(50)"/>
+            <column name="lastname" type="varchar(50)"/>
+            <column name="phone_number" type="varchar"/>
+            <column name="age" type="integer"/>
+            <column name="work_address" type="varchar"/>
+            <column name="living_address" type="varchar"/>
+            <column name="professional_situation" type="varchar"/>
+            <column name="is_married" type="boolean"/>
+            <column name="number_of_children" type="integer"/>
+            <column name="is_profile_completed" type="boolean"/>
+            <column name="created_by" type="varchar(50)">
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="vehicules">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="brand" type="varchar(50)"/>
+            <column name="model" type="varchar(50)"/>
+            <column name="fabrication_date" type="Date"/>
+            <column name="color" type="varchar"/>
+            <column name="insurance_company" type="varchar"/>
+            <column name="kilometers_traveled" type="numeric"/>
+            <column name="actor_id" type="bigint"/>
+            <column name="created_by" type="varchar(50)">
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="interests">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="varchar"/>
+            <column name="created_by" type="varchar(50)">
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+        <createTable tableName="interest_actors">
+            <column name="actor_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="interest_id" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+
+</databaseChangeLog>

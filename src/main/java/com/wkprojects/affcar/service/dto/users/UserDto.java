@@ -4,6 +4,8 @@
 
 package com.wkprojects.affcar.service.dto.users;
 
+import com.wkprojects.affcar.domain.users.Actor;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,12 +30,22 @@ public class UserDto {
 
     private Set<String> authorities;
 
+    private ActorDto actor;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public ActorDto getActor() {
+        return actor;
+    }
+
+    public void setActor(ActorDto actor) {
+        this.actor = actor;
     }
 
     public String getEmail() {

@@ -23,6 +23,8 @@ import com.wkprojects.affcar.web.rest.errors.FormatNotValidException;
 import com.wkprojects.affcar.web.rest.errors.ResourceAlreadyExistsException;
 import com.wkprojects.affcar.web.rest.errors.ResourceNotFoundException;
 import com.wkprojects.affcar.web.rest.vm.ResetPasswordVM;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -48,6 +50,7 @@ public class UserServiceImpl implements IUserService {
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
     private final IMailingService mailingService;
+    private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
     public UserServiceImpl(IMailingService mailingService,UserRepository userRepository, UserMapper userMapper, AuthorityRepository authorityRepository,
                            PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager,
@@ -66,7 +69,9 @@ public class UserServiceImpl implements IUserService {
         userRepository.findOneByEmail(userDto.getEmail()).ifPresent(u -> {
             throw new ResourceAlreadyExistsException("User already exists");
         });
+        logger.info("actorDto: {}",userDto.getActor().toString());
         User userToSave = userMapper.userDtoToUser(userDto);
+        logger.info("actor: {}",userToSave.getActor().toString());
         Set<Authority> authorities;
         if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.SUPER_ADMIN)) {
             authorities = userDto.getAuthorities().stream()

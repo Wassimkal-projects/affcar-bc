@@ -10,4 +10,6 @@
 
     <include file="config/liquibase/changelog/10000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/10000_initial_data.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20000_initial_data.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--*
+  * Copyright (c) 2019. CreatedBy Wassim KALBOUSSI.  All rights reserved.
+  -->
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet id="20001" author="wassim">
+        <insert schemaName="public"
+                tableName="interests">
+            <column name="id" valueComputed="NEXTVAL('interest_seq')"/>
+            <column name="code" value="Sports"/>
+            <column name="created_by" value="liquibase"/>
+            <column name="created_date" valueDate="${now}"/>
+        </insert>
+        <insert schemaName="public"
+                tableName="interests">
+            <column name="id" valueComputed="NEXTVAL('interest_seq')"/>
+            <column name="code" value="Traveling"/>
+            <column name="created_by" value="liquibase"/>
+            <column name="created_date" valueDate="${now}"/>
+        </insert>
+        <insert schemaName="public"
+                tableName="interests">
+            <column name="id" valueComputed="NEXTVAL('interest_seq')"/>
+            <column name="code" value="Music"/>
+            <column name="created_by" value="liquibase"/>
+            <column name="created_date" valueDate="${now}"/>
+        </insert>
+        <insert schemaName="public"
+                tableName="interests">
+            <column name="id" valueComputed="NEXTVAL('interest_seq')"/>
+            <column name="code" value="Video Gaming"/>
+            <column name="created_by" value="liquibase"/>
+            <column name="created_date" valueDate="${now}"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>
