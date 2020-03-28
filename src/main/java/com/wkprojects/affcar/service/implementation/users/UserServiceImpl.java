@@ -50,6 +50,7 @@ public class UserServiceImpl implements IUserService {
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
     private final IMailingService mailingService;
+
     private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
     public UserServiceImpl(IMailingService mailingService,UserRepository userRepository, UserMapper userMapper, AuthorityRepository authorityRepository,
@@ -69,9 +70,7 @@ public class UserServiceImpl implements IUserService {
         userRepository.findOneByEmail(userDto.getEmail()).ifPresent(u -> {
             throw new ResourceAlreadyExistsException("User already exists");
         });
-        logger.info("actorDto: {}",userDto.getActor().toString());
         User userToSave = userMapper.userDtoToUser(userDto);
-        logger.info("actor: {}",userToSave.getActor().toString());
         Set<Authority> authorities;
         if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.SUPER_ADMIN)) {
             authorities = userDto.getAuthorities().stream()
