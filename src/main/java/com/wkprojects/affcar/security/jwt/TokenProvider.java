@@ -43,7 +43,7 @@ public class TokenProvider {
     private final long tokenValidityInSeconds = 86400;
     private long tokenValidityInMillisecondsForRememberMe;
     private final long tokenValidityInSecondsForRememberMe = 2592000;
-    private String secret = "secret_key";
+    private String secret = "my-token-secret-key";
 
 
     @PostConstruct

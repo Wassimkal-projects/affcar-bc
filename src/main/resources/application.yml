@@ -16,12 +16,3 @@ spring:
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
-
-axeane:
-  security:
-    authentication:
-      jwt:
-        secret: my-secret-token-to-change-in-production
-        # Token is valid 24 hours
-        token-validity-in-seconds: 86400
-        token-validity-in-seconds-for-remember-me: 2592000
